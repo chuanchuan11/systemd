@@ -1,5 +1,3 @@
-# systemd
+## systemd笔记 
 
-
-
-# TBD
+> [https://github.com/chuanchuan11/systemd/blob/main/01%20init%E7%9A%84%E8%BF%9B%E5%8C%96.md]
