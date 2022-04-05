@@ -2,7 +2,7 @@
 
   内核启动的第一个用户空间进程是由init开始的，init主要有如下3个版本:
 
-  1) System V init, (Sys V 传统的顺序启动init, 已经过时)包含目录：/etc/inittab
+# 1) System V init, (Sys V 传统的顺序启动init, 已经过时)包含目录：/etc/inittab
   
 ```
      a) sysvinit 的重要优点是确定的执行顺序：脚本严格按照启动数字的大小顺序执行，一个执行完毕再执行下一个，这非常有益于错误排查。
@@ -11,7 +11,7 @@
         针对这些问题，人们开始想办法改进 sysvinit，以便加快启动时间，并解决 sysvinit 自身的设计问题
 ```
 
-  2) Upstart, (Ubuntu使用过) 包含目录：/etc/init，包含.conf文件
+# 2) Upstart, (Ubuntu使用过) 包含目录：/etc/init，包含.conf文件
   
      UpStart 解决了之前提到的 sysvinit 的缺点。采用事件驱动模型，UpStart 可以：
 
@@ -22,7 +22,7 @@
      d) 这些特点使得 UpStart 可以很好地应用在桌面或者便携式系统中，处理这些系统中的动态硬件插拔特性
 ```
 
-  3) systemd, (并行按需启动，主流)包含目录：/usr/lib/systemd/; etc/systemd/
+# 3) systemd, (并行按需启动，主流)包含目录：/usr/lib/systemd/; etc/systemd/
   
      相对于传统的init程序，systemd的特点有：
   
