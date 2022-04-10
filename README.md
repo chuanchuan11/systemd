@@ -20,7 +20,8 @@
 
 
 
-参考：
+文章参考：
+
 (1) https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 
 (2) http://www.jinbuguo.com/systemd/systemd.index.html
