@@ -40,7 +40,13 @@ e) Systemd Journal 用二进制格式保存所有日志信息(内核日志和应
 Linux 系统的总管 Systemd
 https://blog.csdn.net/weixin_30894389/article/details/95682927
 
+
+
 浅析Linux初始化init系统;第3部分[Systemd]刘明(2014-7-16)
+https://www.linuxidc.com/Linux/2014-12/110382.htm
+
+https://www.linuxidc.com/Linux/2014-12/110381p2.htm
+
 https://blog.csdn.net/younger_china/article/details/52539657
 
 Systemd 入门教程：命令篇  阮一峰(2016-3-7)
