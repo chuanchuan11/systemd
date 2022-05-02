@@ -1,1 +1,30 @@
-TBD
+> ## systemd-analyze 简介
+
+  systemd-analyze 是 Linux 自带的分析系统启动性能的工具。
+  
+  
+> ## systemd-analyze 可使用的命令
+
+```
+systemd-analyze 可以显示系统启动过程中的性能统计数据、 获取 systemd 系统管理器的状态与跟踪信息、 校验单元文件的正确性。 此外，还可以用于调试 systemd 系统管理器。
+
+systemd-analyze time 可以显示如下时间： (1)在启动第一个用户态进程(init)之前，内核运行了多长时间； (2)在切换进入实际的根文件系统之前，initrd(initial RAM disk)运行了多长时间； (3)进入实际的根文件系统之后，用户空间启动完成花了多长时间。 注意， 上述时间只是简单的计算了系统启动过程中到达不同标记点的时间， 并没有计入各单元实际启动完成所花费的时间以及磁盘空闲的时间。
+
+systemd-analyze blame 按照每个单元花费的启动时间从多到少的顺序，列出所有当前正处于活动(active)状态的单元。 这些信息有助于用户优化系统启动速度。 不过需要注意的是，这些信息也可能具有误导性， 因为花费较长时间启动的单元，有可能只是在等待另一个依赖单元完成启动。 注意， systemd-analyze blame Type=simple 服务的结果， 因为 systemd 认为这种服务是立即启动的， 所以无法测量初始化延迟。
+
+systemd-analyze critical-chain [UNIT…] 为指定的单元(省略参数表示默认启动目标单元)以树状形式显示时间关键链(time-critical chain)。 "@"后面的时刻表示该单元的启动时刻； "+"后面的时长表示该单元总计花了多长时间才完成启动。 不过需要注意的是， 这些信息也可能具有误导性， 因为花费较长时间启动的单元， 有可能只是在 等待另一个依赖单元完成启动。
+
+systemd-analyze plot 输出一个 SVG 图像，详细显示每个单元的启动时刻， 并高亮显示每个单元总计花了多长时间才完成启动。
+
+systemd-analyze dot 按照 GraphViz dot(1) 格式输出单元间的依赖关系图。 在实践中，通常使用 systemd-analyze dot | dot -Tsvg > systemd.svg 命令来最终生成描述单元间依赖关系的 SVG 图像。 除非使用了 --order 或 --require 选项限定仅显示特定类型的依赖关系， 否则将会显示所有的依赖关系。如果指定了至少一个 PATTERN 参数(例如 *.target 这样的 shell 匹配模式)， 那么将会仅显示所有匹配这些模式的单元的直接依赖关系。
+
+systemd-analyze dump 按照人类易读的格式输出全部单元的状态(一般都有几千数万行)。 因为它的输出格式经常在未通知的情况下发生变化， 所以切勿将此输出用于程序分析。
+
+systemd-analyze cat-config 类似于 systemctl cat ，但用于显示配置文件。 此命令将会把配置文件与配置片段的内容显示在标准输出上， 并且遵守 systemd 配置目录与配置文件的优先级规则。 参数要么是 绝对路径(例如 /etc/systemd/logind.conf 或 /usr/lib/systemd/logind.conf)、 要么是相对于前缀的相对路径(例如 systemd/logind.conf)。
+
+```
+
+参考：
+
+(1) http://www.jinbuguo.com/systemd/systemd-analyze.html#
+
